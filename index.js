@@ -1,24 +1,30 @@
 window.onload=() => {
-    const button = document.getElementsByClassName("select-btn")
+    const button = document.querySelectorAll(".select-btn")
     const para = document.getElementsByClassName("hide-paragraph")
 
-function showParagraph() {
-    for (var i=0; i<para.length; i++) {
-            if (para[i].style.display === "none") {
-                para[i].style.display = "block"
-            } else {
-                para[i].style.display = "none"
-            }
-        }
-    }
-
-
-
-for (var i=0; i<button.length; i++) {
-    button[i].addEventListener("click", function(){
-        showParagraph()
-    })
+function showParagraph(){
+    
+   button.forEach(btn => {
+       btn.addEventListener('click', function(){
+        const accordionContent = btn.nextElementSibling;
+        btn.classList.toggle('rotate')
+       
+        accordionContent.classList.toggle('active')
+       })
+   })
 }
+showParagraph()
+   
+    
+
+
+
+
+
+
+
 
 }
+   
+    
 
